@@ -1,12 +1,19 @@
 package com.itheima.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Emp {
     private Long id; //ID,主键
     private String username; //用户名
@@ -23,9 +30,10 @@ public class Emp {
     private LocalDateTime updateTime; //修改时间
 
     //封装部门名称数
-    //@TableField(exist = false)
+    @TableField(exist = false)
     private String deptName; //部门名称
 
     // 封装工作经历列表
-//    private List<EmpExpr> exprList;
+    @TableField(exist = false)
+    private List<EmpExpr> exprList;
 }

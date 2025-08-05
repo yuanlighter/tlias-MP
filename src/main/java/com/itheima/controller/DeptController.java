@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+
 import com.itheima.pojo.Dept;
 import com.itheima.pojo.Result;
 import com.itheima.service.DeptService;
@@ -7,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -20,7 +22,7 @@ public class DeptController {
     public Result findAll() {
         log.info("查询所有部门数据");
 
-        List<Dept> depts = deptService.findAll();
+        List<Dept> depts = deptService.list();
 
         return Result.success(depts);
     }
@@ -29,7 +31,7 @@ public class DeptController {
     @DeleteMapping
     public Result deleteById(Integer id) {
         log.info("根据id删除部门，删除的部门id：{}", id);
-        deptService.deleteById(id);
+        deptService.removeById(id);
         return Result.success();
     }
 
@@ -37,6 +39,8 @@ public class DeptController {
     @PostMapping
     public Result save(@RequestBody Dept dept) {
         log.info("新增部门，要新增的部门信息：{}", dept);
+        dept.setCreateTime(LocalDateTime.now());
+        dept.setUpdateTime(LocalDateTime.now());
         deptService.save(dept);
         return Result.success();
     }
@@ -55,7 +59,7 @@ public class DeptController {
     @PutMapping
     public Result update(@RequestBody Dept dept) {
         log.info("修改部门数据，修改后的部门数据：{}", dept);
-        deptService.update(dept);
+        deptService.updateById(dept);
         return Result.success();
     }
 }

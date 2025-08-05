@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.itheima</groupId>
-    <artifactId>tlias-mangement-system</artifactId>
+    <artifactId>tlias-MP</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>tlias-mangement-system</name>
     <description>tlias-mangement-system</description>

@@ -1,5 +1,6 @@
 package com.itheima.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,11 +22,12 @@ public class Student {
     private String address; // 联系地址
     private Integer degree; // 最高学历, 1: 初中, 2: 高中 , 3: 大专 , 4: 本科 , 5: 硕士 , 6: 博士
     private LocalDate graduationDate; // 毕业时间
-    private Integer clazzId; // 班级ID
+    private Long clazzId; // 班级ID
     private Short violationCount; // 违纪次数
     private Short violationScore; // 违纪扣分
     private LocalDateTime createTime; // 创建时间
     private LocalDateTime updateTime; // 修改时间
 
+    @TableField(exist = false)
     private String clazzName;// 班级名称
 }

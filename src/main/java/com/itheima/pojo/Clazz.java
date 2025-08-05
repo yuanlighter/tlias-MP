@@ -1,5 +1,6 @@
 package com.itheima.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,8 @@ public class Clazz {
     private LocalDateTime createTime; // 创建时间
     private LocalDateTime updateTime; // 修改时间
 
+    @TableField(exist = false)
     private String masterName; // 班主任姓名
+    @TableField(exist = false)
     private String status; // 班级状态 - 未开班 , 在读 , 已结课
 }
